@@ -1,4 +1,4 @@
-# ESP32 Smart Home Automation
+# ESP32 Smart Home Automation_5_Channel_Relays
 
 ESP32-based smart home automation system using ESP RainMaker. Control lights and fans via Google Home, IR remote, and manual switches with DHT11 temperature/humidity monitoring.
 
@@ -120,12 +120,12 @@ All buttons: One side to GPIO, other side to GND
 ### Required Libraries
 Install these libraries via Arduino IDE Library Manager:
 ```
-- ESP RainMaker (by Espressif)
-- IRremote (by shirriff)
-- DHT sensor library (by Adafruit)
-- SimpleTimer
-- Preferences (built-in)
-- AceButton
+- ESP32 (by Espressif)  version 2.0.5
+- IRremote (by shirriff)  version 3.6.1
+- DHT sensor library (by Adafruit)  version 1.4.4
+- SimpleTimer  version 1.0.0
+- Preferences (built-in)  version 2.2.2
+- AceButton  version 1.9.2
 ```
 
 ### Configuration Steps
@@ -224,78 +224,8 @@ Install these libraries via Arduino IDE Library Manager:
   - Device removed from RainMaker account
   - Complete re-setup required
 
-## Troubleshooting
-
-### Device Not Connecting to WiFi
-- Ensure correct WiFi credentials
-- Check if WiFi is 2.4GHz (ESP32 doesn't support 5GHz)
-- Perform WiFi reset using BOOT button
-
-### IR Remote Not Working
-- Verify IR receiver connections
-- Check hex codes match your remote
-- Test IR receiver with IRremote library examples
-- Ensure line of sight between remote and receiver
-
-### Relay Not Switching
-- Check relay voltage requirements (5V/3.3V)
-- Verify GPIO connections
-- Test relay module independently
-- Check power supply capacity
-
-### DHT11 Not Reading
-- Verify VCC is 3.3V (not 5V)
-- Check data pin connection
-- Wait 2 seconds after power-on for sensor to stabilize
-- Try replacing sensor if consistently fails
-
-### Google Home Not Controlling
-- Ensure ESP RainMaker account is linked
-- Verify device is online in RainMaker app
-- Unlink and relink ESP RainMaker in Google Home
-- Check voice command syntax
-
-## Project Structure
-```
-ESP32-Smart-Home-Automation/
-│
-├── esp_rainmaker.ino          # Main Arduino sketch
-└── README.md                   # This file
-```
-
-## Technical Details
-
-### Fan Speed Control Logic
-The fan uses 3 relays in a binary-like configuration to achieve 4 speeds plus OFF state. This is more efficient than using 4 separate relays.
-
-### State Persistence
-All device states are saved to NVS (Non-Volatile Storage) on every change, ensuring states are restored after power loss.
-
-### Button Handling
-Uses AceButton library for robust button handling with debouncing and event detection (pressed/released).
-
-## Future Enhancements
-- Add scheduling/timers
-- Implement scenes (predefined device combinations)
-- Add energy monitoring
-- Integration with Alexa
-- Web dashboard
-- MQTT support
-
 ## License
 This project is open-source. Feel free to modify and distribute.
 
 ## Author
-Developed by Nafiz Urnayem
-
-## Acknowledgments
-- ESP RainMaker framework by Espressif
-- IRremote library by shirriff
-- DHT library by Adafruit
-- AceButton library by Brian T. Park
-
-## Support
-For issues and questions, please open an issue on GitHub or contact via [your contact method].
-
----
-**Note**: Always ensure proper electrical safety when working with AC circuits. If unsure, consult a qualified electrician.
+Developed by Nafizur Nayem
